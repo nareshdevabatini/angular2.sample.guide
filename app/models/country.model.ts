@@ -1,4 +1,4 @@
-export class Country{
+﻿export class Country{
     constructor(
     private Id: number,
     private CountryCode: string,
