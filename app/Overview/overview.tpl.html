@@ -1,0 +1,174 @@
+
+<h1>Overview</h1>
+<div class="container">
+    <div>
+        <md-input-container class="example-full-width" >
+            <input mdInput  placeholder="First name1" type="text" [value]="name">
+        </md-input-container>
+    </div>
+    <div>
+        <!--<md-select placeholder="Countries" [(ngModel)]="selectedValue" name="food" (ngModelChange)="OnCountryDDChange(selectedValue)">
+            <md-option *ngFor="let country of countries" [value]="country.name">
+                {{country.name}}
+            </md-option>
+        </md-select>-->
+        <!--<p> Selected value: {{selectedValue}} </p>-->
+       
+       
+    </div>
+
+    <div>
+        <!--<md-input-container>
+            <input mdInput placeholder="Search country" [mdAutocomplete]="auto" [ngModel]="countryCode" (ngModelChange)="OnCountryChange($event)">
+        </md-input-container>
+       
+        <md-autocomplete #auto="mdAutocomplete" >
+            <md-option *ngFor="let country of countries" [value]="country.CountryCode">
+                {{ country.name }}
+            </md-option>
+        </md-autocomplete>-->
+       
+    </div>
+    <input type="button" routerLink="/Overview/Add" routerLinkActive="active" value="Create" />
+    <div id="wrapper">
+        <table id="keywords">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th style="width:200px">
+                        FirstName
+                        <i class="material-icons md-24" (click)="getOrder('FirstName','firstname_sort',firstname_sort)" *ngIf="firstname_sort">arrow_upwards</i>
+                        <i class="material-icons md-24" (click)="getOrder('FirstName_desc','firstname_sort',firstname_sort)" *ngIf="!firstname_sort">arrow_downward</i>
+                    </th>
+                    <th style="width:200px">
+                        LastName
+                        <i class="material-icons md-24" (click)="getOrder('LastName','lastName_sort',lastName_sort)" *ngIf="lastName_sort">arrow_upwards</i>
+                        <i class="material-icons md-24" (click)="getOrder('LastName_desc','lastName_sort',lastName_sort)" *ngIf="!lastName_sort">arrow_downward</i>
+                    </th>
+                    <th style="width:200px">
+                        Address
+                        <i class="material-icons md-24" (click)="getOrder('Address','address_sort',address_sort)" *ngIf="address_sort">arrow_upwards</i>
+                        <i class="material-icons md-24" (click)="getOrder('Address_desc','address_sort',address_sort)" *ngIf="!address_sort">arrow_downward</i>
+                    </th>
+                    <th>
+                        Mobile No
+                        <i class="material-icons md-24" (click)="getOrder('MobileNo','mobileno_sort',mobileno_sort)" *ngIf="mobileno_sort">arrow_upwards</i>
+                        <i class="material-icons md-24" (click)="getOrder('MobileNo_desc','mobileno_sort',mobileno_sort)" *ngIf="!mobileno_sort">arrow_downward</i>
+                    </th>
+                    <th>
+                        Country
+                        <i class="material-icons md-24" (click)="getOrder('Country','country_sort',country_sort)" *ngIf="country_sort">arrow_upwards</i>
+                        <i class="material-icons md-24" (click)="getOrder('Country_desc','country_sort',country_sort)" *ngIf="!country_sort">arrow_downward</i>
+                    </th>
+                    <th style="width:200px">Edit/Delete</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let person of persons">
+                <tr>
+                    <td>
+                       <i class="material-icons md-24" (click)="showRole(person)">view_list</i> 
+                    <!--<input type="button" (click)="showRole(person)" value="show">-->
+                    </td>
+                    <td style="width:200px">
+                        <div ngClass="hideRow editRow_{{person.Id}}">
+                            <md-input-container class="example-full-width">
+                                <input mdInput  type="text" [ngModel]="person?.FirstName" (ngModelChange)="person.FirstName = $event" />
+                            </md-input-container>
+                        </div>
+                        <div ngClass="showRow_{{person.Id}}">{{person.FirstName}}</div>
+                    </td>
+                    <td style="width:200px">
+                        <div ngClass="hideRow editRow_{{person.Id}}">
+                            <md-input-container class="example-full-width">
+                                <input mdInput type="text" [ngModel]="person?.LastName" (ngModelChange)="person.LastName = $event" />
+                            </md-input-container>
+                        </div>
+                        <div ngClass="showRow_{{person.Id}}">{{person.LastName}}</div>
+                    </td>
+                    <td style="width:200px">
+                        <div ngClass="hideRow editRow_{{person.Id}}">
+                            <md-input-container class="example-full-width">
+                                <textarea mdInput placeholder="Address"  [ngModel]="person?.Address" (ngModelChange)="person.Address = $event"></textarea>
+                            </md-input-container>
+                            
+                        </div>
+                        <div ngClass="showRow_{{person.Id}}">{{person.Address}}</div>
+                        
+                    </td>
+                    <td>
+                        <div ngClass="hideRow editRow_{{person.Id}}">
+                            <md-input-container>
+                                <input mdInput #mobileNo type="number" maxlength="5" placeholder="Mobile No" [ngModel]="person?.MobileNo" (ngModelChange)="person.MobileNo = $event">
+                            </md-input-container>
+                        </div>
+                        <div ngClass="showRow_{{person.Id}}">
+                            {{person.MobileNo}}
+                        </div>
+                    </td>
+                    <td>
+                        <div ngClass="hideRow editRow_{{person.Id}}" >
+                            <md-input-container>
+                                <input mdInput placeholder="Search country" [mdAutocomplete]="auto" [(ngModel)]="person.CountryCode">
+                            </md-input-container>
+                            <md-autocomplete #auto="mdAutocomplete">
+                                <md-option *ngFor="let country of countries" [value]="country.CountryCode" (ngModel)="country.CountryCode">
+                                    {{ country.name }}
+                                </md-option>
+                            </md-autocomplete>
+                        </div>
+                        <div ngClass="showRow_{{person.Id}}">
+                            {{person.CountryCode}}
+                        </div>
+                    </td>
+                    <td style="width:200px">
+                        <div ngClass="hideRow editRow_{{person.Id}}">
+                            <input type="button"  value="Update"  (click)="editPerson(person.Id,'updated',person)"/> |
+                            <input type="button" (click)="deletePerson(person)" value="Cancel" />
+                        </div>
+                        <div  ngClass="showRow_{{person.Id}}">
+                            <input type="button" (click)="editPerson(person.Id,'edit')" value="Edit" /> |
+                            <input type="button" (click)="deletePerson(person)" value="Delete" />
+                            <input type="button" (click)="OneditPerson(person)" value="Edit in Another Page" />
+                        </div>
+                    </td>
+                    
+                 </tr>
+                 <tr  ngClass="sub_{{person.Id}}" id="sub_{{person.Id}}" style="display:none;">
+                    <td></td>
+                    <td colspan="4">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Desc</th>
+                                </tr>
+                            </thead>
+                            <tbody *ngFor="let userrole of person.userRoles">
+                                <tr *ngFor="let role of userrole.roles">
+                                    <td>{{role.Name}}</td>
+                                    <td>{{role.Description}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                     <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="pagination" *ngIf="count>0">
+        <input type="button" md-raised-button [disabled]="page == 0" (click)="paginationConfig(page=page-1)" value="Previous"/>
+        <md-select  [(ngModel)]="page" (ngModelChange)="paginationConfig(page)" class="paging">
+            <md-option *ngFor="let value of pages; let i = index" [value]="value + i -1">
+                {{value+i }}
+            </md-option>
+        </md-select>
+        /{{noOfPages}}
+        <input type="button" md-raised-button [disabled]="page >= noOfPages-1" (click)="paginationConfig(page=page+1)" value="Next"/>
+    </div>
+   <!-- <ngb-pagination [collectionSize]="count" [(page)]="page" [pageSize]="pagesize" (click)="pageChanged($event)"></ngb-pagination>-->
+    <div *ngIf="showEdit">
+        <edit-app [name]="name" [data]="data"></edit-app>
+    </div>
+    <router-outlet></router-outlet>
+</div>
