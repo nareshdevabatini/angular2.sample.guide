@@ -1,0 +1,25 @@
+<h1>Home1</h1>
+ 
+<table>
+    <tr>
+        <th style="width:200px">FirstName</th>
+        <th style="width:200px">LastName</th>
+        <th style="width:200px">Address</th>
+        <th >D.O.B</th>
+    </tr>
+    <tr *ngFor="let person of persons;let last = last;">
+        <!--<td>
+            <span *ngIf="last==true?rowBound(person):false"> </span>
+        </td>-->
+        <td *ngIf="last==true?rowBound(person):true">{{person.FirstName}}</td>
+        <td style="width:200px">{{person.LastName}}</td>
+        <td style="width:200px"  >{{person.Address}}</td>
+         <!--<td >
+             <input class="col-md-3" placeholder="yyyy-mm-dd"
+                    name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+             <div class="input-group-addon col-md-1" (click)="d.toggle()">
+                 <img src="img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;" />
+             </div>
+         </td>--> 
+       
+</table>
