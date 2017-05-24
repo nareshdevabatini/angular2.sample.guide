@@ -1,0 +1,24 @@
+<div>
+
+    countries {{country | json}}
+    <label>FirstName</label>&nbsp;&nbsp;
+    <input type="text" [ngModel]="person?.FirstName" (ngModelChange)="person.FirstName = $event"/><br />
+
+    <label>LastName</label>&nbsp;&nbsp;
+    <input type="text" [ngModel]="person?.LastName" (ngModelChange)="person.LastName = $event"/><br />
+
+    <label>Adderss </label>&nbsp;&nbsp;
+    <input type="text" [ngModel]="person?.Address" (ngModelChange)="person.Address = $event"/><br />
+   
+    <label>Mobile Number</label>&nbsp;&nbsp;
+    <input type="text" [ngModel]="person?.MobileNo" (ngModelChange)="person.MobileNo = $event"/><br />
+
+    <!--<span class="todo noselect" (click)="onToggle()">{{todo.owner.firstname}} - {{todo.description}} - completed: {{todo.completed}}</span>-->
+
+    <!--<input type="text" (ngModel)="person.FirstName" />-->
+    <button type="button"
+            [appConfirm]>
+        Go To
+    </button>
+   
+</div>
