@@ -1,0 +1,33 @@
+﻿<!--<nav>
+    <a routerLink="/Overview" routerLinkActive="active">Overview</a>
+
+    <a routerLink="/Home" routerLinkActive="active">Home</a>
+
+    <a routerLink="/Edit" routerLinkActive="active">Edit</a>
+    <router-outlet></router-outlet>
+</nav>-->
+
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <!--<div class="navbar-header">
+            <a routerLink="/" routerLinkActive="active"
+               [routerLinkActiveOptions]="{ exact: true }" class="navbar-brand">
+                My Routing App
+            </a>
+        </div>-->
+        <ul class="nav navbar-nav">
+            <li>
+                <a  (click)="goto('Overview')" style="cursor:pointer">Overview</a>
+            </li>
+            <li><a  (click)="goto('Home')" style="cursor:pointer">Home</a></li>
+            <!--<li><a routerLink="/Edit" routerLinkActive="active" (click)="goto('Edit')">Edit</a></li>-->
+            <li><a routerLinkActive="active" (click)="goto('Edit')" style="cursor:pointer">Edit</a></li>
+        </ul>
+        <!--<ul class="nav navbar-nav navbar-right">
+            <li><a routerLink="/dashboard">Dashboard</a></li>
+        </ul>-->
+    </div>
+</nav>
+
+<router-outlet></router-outlet>
