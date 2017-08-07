@@ -1,0 +1,50 @@
+	C#
+	Constructor
+	Polymorphism (Compile time, Runtime)-Virtual, override, new
+	Abstraction, Encapsulation, Access Modifiers
+	Inheritance – (Abstract, Interface) (abstract / static methods calls)
+	Keywords: ref, out, read only, constant, Caching, Type safe, Typecast (int s = new int ())
+	Design Patterns: Singleton, Factory Method, Adapter, Chain of Responsibility
+	Extension Methods, Anonymous Method, Lambda 
+	Garbage Collection: finalizer,  IDispose, Custom Idispose
+	Generic Collections: List, Array List, Hash table, Dictionary
+	SOLID principals 
+
+
+	Entity Framework
+	Unit of Repository
+	Approaches: Database First, Code First
+	CRUD operations-LINQ.
+	ADO Methods
+
+
+	MVC
+	Life Cycle, MVC Handler, Routing, config
+	Authentication/Authorization: Forms
+	Filters: Authorize, Action, Result, Exception, Custom
+	Action Results: JsonResult, ViewResult, ContentResult, PartialResult, EmptyResult...
+	Attributes: NonAction, Childonly, Action, RenderAction, Partial, RenderPartial, RenderBody, RenderSection…
+	Data Annotation, Ajax Helpers
+	Model Binder, View Model
+	Sessions: View Bag, View Data, Temp Data
+	Dependency Injection: Unity, AutoFac
+	HttpContext 
+	SQL
+Queries: Select top 3, Last 2
+Joins: Self, Cross, Left Outer, Right Outer, Inner, Records count
+View: Possible to Alter/Delete
+StoreProcs: Exception Handler, Temp/Global Variables, Datatypes (Varchar, Nchar, Nvarchar) 
+Functions: Inbuilt 
+Keys: Primary, Unique, Composite
+Normalization type, 
+Clause: Where, Group by, Having ()
+Index: Clustered Index, Non-Clustered index
+Trigger/Cursors Types
+
+
+	WebAPI/WCF
+	Difference HttpVerbs
+	Security Implements
+	UI
+	Html, CSS, JavaScript, JQuery
+	Angular2
